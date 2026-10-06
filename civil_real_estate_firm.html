@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Civil Engineering & Real Estate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .view-section { display: none; opacity: 0; transition: opacity 0.3s ease-in-out; }
+        .view-section.active { display: block; opacity: 1; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1541888081-35b8004f1fb5?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .progress-bar-striped {
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+            background-size: 1rem 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+    <nav class="bg-slate-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center cursor-pointer" onclick="navigate('home')">
+                    <i class="fa-solid fa-helmet-safety text-orange-500 text-3xl mr-3"></i>
+                    <span class="font-bold text-2xl tracking-tight">APEX<span class="text-orange-500 font-light">CIVIL</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <button onclick="navigate('home')" class="nav-btn hover:text-orange-400 font-medium transition-colors">Home</button>
+                    <button onclick="navigate('projects')" class="nav-btn hover:text-orange-400 font-medium transition-colors">Projects</button>
+                    <button onclick="navigate('real-estate')" class="nav-btn hover:text-orange-400 font-medium transition-colors">Real Estate</button>
+                    <button onclick="navigate('client-portal')" class="bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-md font-semibold transition-colors flex items-center">
+                        <i class="fa-solid fa-user-lock mr-2"></i> Client Portal
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 pb-4 px-4 space-y-2">
+            <button onclick="navigate('home')" class="block w-full text-left py-2 px-4 hover:bg-slate-700 rounded text-gray-200">Home</button>
+            <button onclick="navigate('projects')" class="block w-full text-left py-2 px-4 hover:bg-slate-700 rounded text-gray-200">Projects</button>
+            <button onclick="navigate('real-estate')" class="block w-full text-left py-2 px-4 hover:bg-slate-700 rounded text-gray-200">Real Estate</button>
+            <button onclick="navigate('client-portal')" class="block w-full text-left py-2 px-4 bg-orange-600 hover:bg-orange-700 rounded text-white mt-4 font-semibold">Client Portal</button>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <!-- HOME VIEW -->
+        <section id="home" class="view-section active">
+            <!-- Hero -->
+            <div class="hero-bg h-[600px] flex items-center justify-center text-center px-4">
+                <div class="max-w-4xl">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Building the Future with Precision & Excellence</h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Top-tier civil engineering and premium real estate development. We transform bold visions into enduring realities.</p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <button onclick="navigate('projects')" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-md font-bold text-lg transition-all shadow-lg">Explore Projects</button>
+                        <button onclick="navigate('real-estate')" class="bg-white text-slate-900 hover:bg-gray-100 px-8 py-3 rounded-md font-bold text-lg transition-all shadow-lg">View Properties</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services -->
+            <div class="max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Our Core Expertise</h2>
+                    <div class="w-24 h-1 bg-orange-500 mx-auto"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Service 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow border border-gray-100 group">
+                        <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center text-3xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-city"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900">Urban Planning</h3>
+                        <p class="text-gray-600">Comprehensive master planning and sustainable urban development solutions that harmonize with the environment.</p>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow border border-gray-100 group">
+                        <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center text-3xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-water"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900">Water Engineering</h3>
+                        <p class="text-gray-600">Advanced stormwater management, drainage modeling, and resilient water supply network design.</p>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow border border-gray-100 group">
+                        <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center text-3xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                            <i class="fa-solid fa-road"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-slate-900">Highway Geometric Design</h3>
+                        <p class="text-gray-600">Safe, efficient transportation corridors meticulously designed utilizing state-of-the-art parameters.</p>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="mt-20 bg-slate-900 rounded-2xl p-10 text-center text-white shadow-inner">
+                    <h3 class="text-2xl font-semibold mb-6">Powered by Industry-Leading Technology</h3>
+                    <div class="flex flex-wrap justify-center gap-8 items-center text-gray-400">
+                        <div class="flex flex-col items-center"><i class="fa-solid fa-compass-drafting text-4xl mb-2 text-blue-400"></i><span class="font-medium">AutoCAD Civil 3D</span></div>
+                        <div class="flex flex-col items-center"><i class="fa-solid fa-cubes text-4xl mb-2 text-orange-400"></i><span class="font-medium">Autodesk Revit</span></div>
+                        <div class="flex flex-col items-center"><i class="fa-solid fa-map-location-dot text-4xl mb-2 text-green-400"></i><span class="font-medium">GIS Mapping</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS VIEW -->
+        <section id="projects" class="view-section py-12 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Infrastructure & Building Projects</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">A selection of our successfully completed engineering landmarks and commercial structures.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                    <!-- Project Cards Injected via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- REAL ESTATE VIEW -->
+        <section id="real-estate" class="view-section py-12 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-900 mb-2">Available Properties</h2>
+                        <p class="text-gray-600">Premium real estate developed and managed by Apex.</p>
+                    </div>
+                    <div class="mt-4 md:mt-0">
+                        <select class="bg-white border border-gray-300 text-gray-700 py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option>All Types</option>
+                            <option>Residential</option>
+                            <option>Commercial</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="real-estate-grid">
+                    <!-- Property Cards Injected via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CLIENT PORTAL VIEW -->
+        <section id="client-portal" class="view-section py-12">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[60vh]">
+                
+                <!-- Unauthenticated State -->
+                <div id="auth-container" class="max-w-md mx-auto bg-white p-8 rounded-xl shadow-lg border border-gray-100 mt-10">
+                    <div class="text-center mb-8">
+                        <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900">Client Portal Access</h2>
+                        <p class="text-gray-500 mt-2 text-sm">Log in to view live tracking and status updates of your engineering projects.</p>
+                    </div>
+                    
+                    <button id="login-btn" onclick="handleLogin()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-lg shadow transition-colors flex justify-center items-center">
+                        <i class="fa-solid fa-arrow-right-to-bracket mr-2"></i> Access My Dashboard
+                    </button>
+                    <div id="login-status" class="mt-4 text-center text-sm text-gray-500 hidden">
+                        <i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Authenticating securely...
+                    </div>
+                </div>
+
+                <!-- Authenticated Dashboard -->
+                <div id="dashboard-container" class="hidden">
+                    <div class="flex justify-between items-center mb-8 bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                        <div>
+                            <h2 class="text-2xl font-bold text-slate-900">Client Dashboard</h2>
+                            <p class="text-gray-500 text-sm">Welcome back. Here is the latest status of your portfolio.</p>
+                        </div>
+                        <button onclick="handleLogout()" class="text-gray-500 hover:text-red-600 transition-colors font-medium border border-gray-300 rounded-md px-4 py-2 hover:border-red-600">
+                            Logout
+                        </button>
+                    </div>
+
+                    <div id="dashboard-content" class="space-y-8">
+                        <!-- Project trackers injected via JS -->
+                        <div class="text-center py-12 bg-white rounded-xl border border-gray-200 shadow-sm" id="loading-projects">
+                            <i class="fa-solid fa-circle-notch fa-spin text-3xl text-blue-500 mb-3"></i>
+                            <p class="text-gray-500 font-medium">Fetching secure project data...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-gray-400 py-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <span class="font-bold text-2xl tracking-tight text-white block mb-4">APEX<span class="text-orange-500 font-light">CIVIL</span></span>
+                <p class="text-sm max-w-md">Leading the industry in innovative civil engineering, structural integrity, and premium real estate development since 2010.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" onclick="navigate('home')" class="hover:text-orange-400">Home</a></li>
+                    <li><a href="#" onclick="navigate('projects')" class="hover:text-orange-400">Projects</a></li>
+                    <li><a href="#" onclick="navigate('real-estate')" class="hover:text-orange-400">Real Estate</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Contact</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><i class="fa-solid fa-envelope mr-2"></i> info@apexcivil.com</li>
+                    <li><i class="fa-solid fa-phone mr-2"></i> +1 (555) 123-4567</li>
+                    <li><i class="fa-solid fa-location-dot mr-2"></i> 100 Engineering Blvd, Metro City</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 mt-12 pt-8 text-center text-sm">
+            <p>&copy; 2026 Apex Civil Engineering & Real Estate. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, query, getDocs, onSnapshot, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Navigation Logic
+        window.navigate = function(sectionId) {
+            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Mock Static Data for Projects & Real Estate
+        const engineeringProjects = [
+            { title: "Metropolitan Bypass Highway", category: "Infrastructure", img: "https://images.unsplash.com/photo-1545459720-aac8509eb02c?w=800&q=80", desc: "A 15km stretch of elevated highway designed using Civil 3D, reducing city congestion by 30%." },
+            { title: "Azure River Dam", category: "Water Engineering", img: "https://images.unsplash.com/photo-1620645604169-f1cc19d5c6af?w=800&q=80", desc: "Sustainable hydroelectric dam and reservoir system providing clean energy to 50,000 homes." },
+            { title: "Tech Park Central", category: "Commercial Structure", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80", desc: "A 5-building campus modeled entirely in Revit, featuring green roofs and smart energy systems." }
+        ];
+
+        const realEstateListings = [
+            { title: "Skyline Penthouse", type: "Residential", price: "$2,400,000", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80", specs: "4 Bed | 3.5 Bath | 3,200 sqft" },
+            { title: "Harbor View Office Space", type: "Commercial", price: "$15,000 / mo", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80", specs: "Open Plan | 5,000 sqft | Built 2024" },
+            { title: "Oakridge Family Villa", type: "Residential", price: "$850,000", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", specs: "5 Bed | 4 Bath | 4,100 sqft" },
+            { title: "Downtown Retail Hub", type: "Commercial", price: "$3,200,000", img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80", specs: "High Foot Traffic | 8,500 sqft" }
+        ];
+
+        // Render Static Data
+        function renderStaticGrids() {
+            const projGrid = document.getElementById('projects-grid');
+            projGrid.innerHTML = engineeringProjects.map(p => `
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all flex flex-col group">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute top-4 left-4 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">${p.category}</div>
+                        <img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">${p.title}</h3>
+                        <p class="text-gray-600 text-sm flex-grow">${p.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            const reGrid = document.getElementById('real-estate-grid');
+            reGrid.innerHTML = realEstateListings.map(r => `
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all group border border-gray-100">
+                    <div class="h-56 overflow-hidden relative">
+                        <div class="absolute top-4 right-4 bg-slate-900 text-white text-sm font-bold px-3 py-1 rounded-md z-10 shadow">${r.price}</div>
+                        <img src="${r.img}" alt="${r.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="text-orange-500 text-xs font-bold uppercase tracking-wider mb-1">${r.type}</div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">${r.title}</h3>
+                        <div class="flex items-center text-gray-500 text-sm mt-4 pt-4 border-t border-gray-100">
+                            <i class="fa-solid fa-ruler-combined mr-2"></i> ${r.specs}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        renderStaticGrids();
+
+        // Firebase Configuration & Initialization
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-civ-eng';
+        
+        let app, db, auth;
+        try {
+            app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            auth = getAuth(app);
+        } catch (e) {
+            console.error("Firebase init failed", e);
+        }
+
+        let unsubscribeProjects = null;
+
+        window.handleLogin = async function() {
+            if (!auth) return;
+            const statusDiv = document.getElementById('login-status');
+            const btn = document.getElementById('login-btn');
+            statusDiv.classList.remove('hidden');
+            btn.disabled = true;
+            btn.classList.add('opacity-70');
+
+            try {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (error) {
+                console.error("Auth error", error);
+                alert("Login failed. Please try again.");
+                statusDiv.classList.add('hidden');
+                btn.disabled = false;
+                btn.classList.remove('opacity-70');
+            }
+        };
+
+        window.handleLogout = async function() {
+            if (!auth) return;
+            try {
+                await signOut(auth);
+            } catch (err) {
+                console.error("Logout error", err);
+            }
+        };
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                document.getElementById('auth-container').classList.add('hidden');
+                document.getElementById('dashboard-container').classList.remove('hidden');
+                setupClientDashboard(user.uid);
+            } else {
+                document.getElementById('auth-container').classList.remove('hidden');
+                document.getElementById('dashboard-container').classList.add('hidden');
+                document.getElementById('login-status').classList.add('hidden');
+                document.getElementById('login-btn').disabled = false;
+                document.getElementById('login-btn').classList.remove('opacity-70');
+                if (unsubscribeProjects) {
+                    unsubscribeProjects();
+                    unsubscribeProjects = null;
+                }
+            }
+        });
+
+        async function setupClientDashboard(userId) {
+            const projectsRef = collection(db, 'artifacts', appId, 'users', userId, 'monitored_projects');
+            
+            try {
+                // Check if we need to seed initial mock data for demo purposes
+                const snapshot = await getDocs(query(projectsRef));
+                if (snapshot.empty) {
+                    await addDoc(projectsRef, {
+                        name: "Riverside Corporate HQ Construction",
+                        statusText: "Phase 3: Structural Framing & Concrete Pouring",
+                        progressPercentage: 45,
+                        manager: "Elena Rostova, PE",
+                        updates: [
+                            { date: new Date(Date.now() - 172800000).toISOString(), message: "Concrete pouring for foundation completed. Curing in progress." },
+                            { date: new Date(Date.now() - 604800000).toISOString(), message: "Site excavation and grading finished." }
+                        ],
+                        createdAt: serverTimestamp()
+                    });
+                }
+
+                // Listen to live updates
+                unsubscribeProjects = onSnapshot(query(projectsRef), (snap) => {
+                    const dashboardContent = document.getElementById('dashboard-content');
+                    if (snap.empty) {
+                        dashboardContent.innerHTML = `<div class="p-8 text-center text-gray-500 bg-white rounded-xl border border-gray-200">No active projects found on your account.</div>`;
+                        return;
+                    }
+
+                    let html = '';
+                    snap.forEach(doc => {
+                        const data = doc.data();
+                        const progress = data.progressPercentage || 0;
+                        
+                        // Format updates safely
+                        const updatesHtml = (data.updates || []).map(up => `
+                            <div class="relative pl-6 pb-4 border-l-2 border-gray-200 last:pb-0">
+                                <div class="absolute w-3 h-3 bg-blue-500 rounded-full -left-[7px] top-1.5 shadow-[0_0_0_3px_white]"></div>
+                                <div class="text-xs text-gray-400 font-medium mb-1">${new Date(up.date).toLocaleDateString(undefined, {month: 'short', day: 'numeric', year: 'numeric'})}</div>
+                                <div class="text-sm text-gray-700">${up.message}</div>
+                            </div>
+                        `).join('');
+
+                        html += `
+                            <div class="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden">
+                                <div class="p-6 border-b border-gray-100 flex flex-col md:flex-row justify-between md:items-center gap-4">
+                                    <div>
+                                        <div class="text-xs font-bold text-blue-600 uppercase tracking-wide mb-1">Active Project Monitor</div>
+                                        <h3 class="text-2xl font-bold text-slate-900">${data.name}</h3>
+                                        <p class="text-gray-500 text-sm mt-1"><i class="fa-regular fa-id-badge mr-1"></i> Project Manager: ${data.manager || 'Unassigned'}</p>
+                                    </div>
+                                    <div class="bg-blue-50 text-blue-800 px-4 py-2 rounded-lg font-semibold text-sm border border-blue-100">
+                                        <i class="fa-solid fa-circle-info mr-2 text-blue-500"></i>${data.statusText}
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6 bg-slate-50 border-b border-gray-100">
+                                    <div class="flex justify-between items-end mb-2">
+                                        <span class="font-semibold text-slate-700 text-sm">Overall Completion</span>
+                                        <span class="font-bold text-xl text-blue-600">${progress}%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-4 shadow-inner overflow-hidden">
+                                        <div class="bg-blue-600 h-4 rounded-full progress-bar-striped transition-all duration-1000 ease-out flex items-center" style="width: ${progress}%">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-6">
+                                    <h4 class="font-semibold text-slate-800 mb-4 flex items-center">
+                                        <i class="fa-solid fa-timeline text-gray-400 mr-2"></i> Recent Milestones & Updates
+                                    </h4>
+                                    <div class="ml-2">
+                                        ${updatesHtml || '<p class="text-sm text-gray-500 italic">No recent updates.</p>'}
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    
+                    dashboardContent.innerHTML = html;
+                }, (error) => {
+                    console.error("Error fetching projects", error);
+                    document.getElementById('dashboard-content').innerHTML = `
+                        <div class="p-8 text-center text-red-500 bg-red-50 rounded-xl border border-red-200">
+                            Failed to load dashboard data. Ensure permissions are set.
+                        </div>`;
+                });
+
+            } catch (err) {
+                console.error("Dashboard setup error", err);
+            }
+        }
+
+    </script>
+</body>
+</html>
